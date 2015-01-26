@@ -1,6 +1,8 @@
 *~
 *.swp
 *.pyc
+*.egg-info
+dist
 env
 venv
 
