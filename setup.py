@@ -16,6 +16,14 @@ setup(
     author='Sebastian Łach',
     author_email='root@slach.eu',
     license='MIT',
+    keywords='zeromq espresso broker messaging',
+    packages=['zespresso'],
+    install_requires=['pyzmq==2.2.0'],
+    entry_points={
+        'console_scripts': [
+            'zespresso=zespresso:main',
+        ],
+    },
     classifiers=[
         'Development Status :: 5 - Production',
         'Environment :: Console',
@@ -33,13 +41,4 @@ setup(
         'Programming Language :: Python :: 3.4',
 
     ],
-
-    keywords='zeromq espresso broker messaging'
-    packages=['zespresso'],
-    install_requires=['pyzmq==2.2.0'],
-    entry_points={
-        'console_scripts': [
-            'zespresso=zespresso:main',
-        ],
-    },
 )
