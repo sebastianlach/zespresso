@@ -12,14 +12,14 @@ setup(
     version='1.0.0',
     description='Esspresso pattern built on top of zeromq',
     long_description=long_description,
-    url='https://github.com/pypa/sampleproject',
+    url='https://github.com/sebastianlach/zespresso',
     author='Sebastian Łach',
     author_email='root@slach.eu',
-    license='GPLv3+',
+    license='MIT',
     classifiers=[
         'Development Status :: 5 - Production',
         'Environment :: Console',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3+)',
+        'License :: OSI Approved :: MIT License',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
         'Topic :: System :: Networking',
@@ -35,7 +35,7 @@ setup(
     ],
 
     keywords='zeromq espresso broker messaging'
-    packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+    packages=['zespresso'],
     install_requires=['pyzmq==2.2.0'],
     entry_points={
         'console_scripts': [
