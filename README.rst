@@ -6,7 +6,7 @@ monitored_queue. Proxy messages between sockets and optionally forwards
 messages to any number of provided hosts.
 
 
-.. code:: shell
+.. code:: none
 
     usage: zespresso [-h] [--xsub-port [XSUB_PORT]] [--xpub-port [XPUB_PORT]]
                      [--debug]
