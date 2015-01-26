@@ -1,3 +1,4 @@
+import logging
 import zmq
 
 
@@ -17,6 +18,7 @@ def forwarder(pipe, prefix, targets, flag='_forwarded'):
                 if flag not in dictionary:
                     dictionary[flag] = True
                     forward.send_pyobj(dictionary)
+                logging.debug(dictionary)
 
         except zmq.ZMQError as e:
             if e.errno == zmq.ETERM:

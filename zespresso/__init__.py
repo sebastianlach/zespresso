@@ -12,7 +12,6 @@ from zespresso.target import Target
 from zespresso.zpipe import zpipe
 
 
-logging.getLogger().setLevel(logging.INFO)
 
 
 def proxy(subscriber_url, publisher_url, targets):
@@ -45,8 +44,11 @@ def main():
                         help='port to use for XSUB socket, default 5550')
     parser.add_argument('--xpub-port', type=int, nargs='?', default=5551,
                         help='port to use for XPUB socket, default 5551')
+    parser.add_argument('--debug', action='count', help="print debug messages")
     parser.add_argument('host', nargs='*', help='host to forward messages to')
     args = parser.parse_args()
+
+    logging.getLogger().setLevel(logging.DEBUG if args.debug else logging.INFO)
 
     broker_ip = str(socket.gethostbyname(socket.getfqdn()))
     subscriber_url = "tcp://%s:%d" % (broker_ip, args.xsub_port)
