@@ -2,7 +2,6 @@
 import argparse
 import logging
 import socket
-import sys
 import threading
 
 import zmq
@@ -10,8 +9,6 @@ import zmq
 from zespresso.forwarder import forwarder
 from zespresso.target import Target
 from zespresso.zpipe import zpipe
-
-
 
 
 def proxy(subscriber_url, publisher_url, targets):
