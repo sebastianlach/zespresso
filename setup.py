@@ -19,7 +19,7 @@ setup(
     license='MIT',
     keywords='zeromq espresso broker messaging',
     packages=['zespresso'],
-    install_requires=['pyzmq==2.2.0'],
+    install_requires=['pyzmq'],
     entry_points={
         'console_scripts': [
             'zespresso=zespresso:main',

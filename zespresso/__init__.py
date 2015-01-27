@@ -22,12 +22,12 @@ def proxy(subscriber_url, publisher_url, targets):
     publisher.bind(publisher_url)
 
     listener = threading.Thread(target=forwarder,
-                                args=(connected, str(zmq.XSUB), targets))
+                                args=(connected, bytes(zmq.XSUB), targets))
     listener.start()
 
     try:
         zmq.devices.monitored_queue(subscriber, publisher, bound,
-                                    str(zmq.XSUB), str(zmq.XPUB))
+                                    bytes(zmq.XSUB), bytes(zmq.XPUB))
     except KeyboardInterrupt:
         logging.error('Interrupted')
 

@@ -14,7 +14,7 @@ def forwarder(pipe, prefix, targets, flag='_forwarded'):
             message_prefix, message = pipe.recv_multipart()
 
             if message_prefix == prefix:
-                dictionary = zmq.core.pysocket.pickle.loads(message)
+                dictionary = zmq.sugar.socket.pickle.loads(message)
                 if flag not in dictionary:
                     dictionary[flag] = True
                     forward.send_pyobj(dictionary)
