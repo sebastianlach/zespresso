@@ -1,4 +1,18 @@
 # -*- coding: utf-8 -*-
+"""
+usage: zespresso [-h] [--xsub-port [XSUB_PORT]] [--xpub-port [XPUB_PORT]]
+                 [--debug]
+                 [host [host ...]]
+"""
+__author__ = "Sebastian Łach"
+__copyright__ = "Copyright 2014, Sebastian Łach"
+__credits__ = ["Sebastian Łach", ]
+__license__ = "MIT"
+__version__ = "1.0"
+__maintainer__ = "Sebastian Łach"
+__email__ = "root@slach.eu"
+__status__ = "Production"
+
 import argparse
 import logging
 import socket
@@ -12,6 +26,13 @@ from zespresso.zpipe import zpipe
 
 
 def proxy(subscriber_url, publisher_url, targets):
+    """Proxy zeromq messages from subscriber to publisher socket.
+
+    :param subscriber_url: zeromq address to bind XSUB socket
+    :param publisher_url: zeromq address to bind XPUB socket
+    :param targets: list of host addresses to forward messages to
+    :return: None
+    """
     ctx = zmq.Context.instance()
     bound, connected = zpipe(ctx)
 
@@ -36,6 +57,7 @@ def proxy(subscriber_url, publisher_url, targets):
 
 
 def main():
+    """Parse command line arguments and start proxy."""
     parser = argparse.ArgumentParser()
     parser.add_argument('--xsub-port', type=int, nargs='?', default=5550,
                         help='port to use for XSUB socket, default 5550')

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from binascii import hexlify
 from os import urandom
 
@@ -5,9 +6,10 @@ import zmq
 
 
 def zpipe(ctx):
-    """ Build inproc pipe for talking to threads
+    """Build inproc pipe for talking to threads.
 
-    Returns a pair of PAIR sockets connected via inproc
+    :param ctx: zeromq context instance
+    :return: a pair of PAIR sockets connected via inproc
     """
     bound = ctx.socket(zmq.PAIR)
     connected = ctx.socket(zmq.PAIR)

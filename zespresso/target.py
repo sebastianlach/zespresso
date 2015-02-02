@@ -1,10 +1,18 @@
+# -*- coding: utf-8 -*-
 from _socket import gethostbyname
 from re import match
 
 
 class Target(object):
+    """Host for receiving messages."""
 
     def __init__(self, host, port):
+        """Create target instance using given host and port.
+
+        :param host: IP address or FQDN of host
+        :param port: port number
+        :return: Target instance
+        """
         parts = host.split(':')
 
         if match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", parts[0]):

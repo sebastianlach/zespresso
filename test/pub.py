@@ -9,7 +9,8 @@ socket.connect("tcp://%s:5550" % gethostbyname(getfqdn()))
 
 while True:
     dictionary = dict((x, random()) for x in ('A', 'B', 'C'))
-    socket.send_pyobj(dictionary)
+    result = socket.send_pyobj(dictionary)
+    print(result)
     print(dictionary)
     sleep(1)
 

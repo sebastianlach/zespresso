@@ -1,9 +1,17 @@
+# -*- coding: utf-8 -*-
 import logging
 import zmq
 
 
 def forwarder(pipe, prefix, targets, flag='_forwarded'):
+    """Forward zeromq messages from pipe to targets.
 
+    :param pipe: socket to receive messages from
+    :param prefix: filter messages with given prefix
+    :param targets: list of targets to forward messages to
+    :param flag: key to indicate already forwarded messages
+    :return: None
+    """
     context = zmq.Context()
     forward = context.socket(zmq.PUB)
     for target in targets:
